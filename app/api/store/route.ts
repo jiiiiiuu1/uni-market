@@ -84,7 +84,14 @@ export async function GET() {
 
   if (!isConfigured) {
     console.log("[Store API] Supabase not configured. Using local JSON store.");
-    return NextResponse.json(readDataLocal());
+    return NextResponse.json({
+      ...readDataLocal(),
+      _debug: {
+        isSupabaseConfigured: false,
+        usingLocalFallback: true,
+        reason: "Missing environment variables"
+      }
+    });
   }
 
   try {
@@ -107,7 +114,21 @@ export async function GET() {
         "[Store API] One or more Supabase table queries failed (tables might not be created yet). Falling back to local store.",
         { itemsErr, chatsErr, requestsErr, notifsErr, usersErr }
       );
-      return NextResponse.json(readDataLocal());
+      return NextResponse.json({
+        ...readDataLocal(),
+        _debug: {
+          isSupabaseConfigured: true,
+          usingLocalFallback: true,
+          reason: "Database query error",
+          errors: {
+            items: itemsErr?.message || null,
+            chats: chatsErr?.message || null,
+            requests: requestsErr?.message || null,
+            notifs: notifsErr?.message || null,
+            users: usersErr?.message || null
+          }
+        }
+      });
     }
 
     // Map user attributes from snake_case back to camelCase
@@ -184,7 +205,15 @@ export async function GET() {
         console.error("[Store API] Failed to seed Supabase database:", seedErr);
       }
 
-      return NextResponse.json(initial);
+      return NextResponse.json({
+        ...initial,
+        _debug: {
+          isSupabaseConfigured: true,
+          usingLocalFallback: false,
+          seeded: true,
+          dbItemsCount: 0
+        }
+      });
     }
 
     return NextResponse.json({
@@ -193,10 +222,23 @@ export async function GET() {
       tradeRequests: dbRequests || [],
       notifications: dbNotifs || [],
       users: mergedUsers,
+      _debug: {
+        isSupabaseConfigured: true,
+        usingLocalFallback: false,
+        dbItemsCount: dbItems.length
+      }
     });
   } catch (error) {
     console.error("[Store API] Unexpected error querying Supabase. Falling back to local store:", error);
-    return NextResponse.json(readDataLocal());
+    return NextResponse.json({
+      ...readDataLocal(),
+      _debug: {
+        isSupabaseConfigured: true,
+        usingLocalFallback: true,
+        reason: "Unexpected exception",
+        error: String(error)
+      }
+    });
   }
 }
 
