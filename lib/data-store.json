@@ -1,59 +1,32 @@
 {
   "items": [
     {
-      "title": "횃불이 키링",
-      "description": "횃불이 키링입니다",
-      "price": 20000,
-      "category": "의류/잡화",
-      "condition": "거의 새 것",
+      "id": "item_mock_2",
+      "title": "아이패드 프로 스마트 키보드 폴리오 11인치",
+      "description": "사용감 조금 있지만 모든 키 정상 작동하고 자력 짱짱합니다. 기숙사(송도기숙사)나 학생회관(12호관)에서 직거래 희망해요.",
+      "price": 45000,
+      "category": "전자기기",
+      "condition": "사용감 있음",
       "images": [
-        "data:image/jpeg;base64,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"
-      ],
-      "location": "학생회관 1층 카페 앞, 중앙도서관 정문, 복지관 앞",
-      "timeSlots": [
-        "월요일 오후(2-6시)",
-        "수요일 점심(12-2시)",
-        "목요일 오전(9-12시)"
-      ],
-      "id": "item_1781808180783",
-      "sellerId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "sellerName": "강지우",
-      "sellerMannerTemp": 36.5,
-      "sellerDept": "정보기술대학 컴퓨터공학부",
-      "status": "ON_SALE",
-      "createdAt": "2026-06-18T18:43:00.783Z",
-      "views": 1,
-      "likes": 0,
-      "likedBy": []
-    },
-    {
-      "id": "item_mock_1",
-      "title": "알기 쉬운 알고리즘 전공책 팝니다 (깨끗함)",
-      "description": "인천대학교 전공 서적입니다. 필기 거의 없고 깨끗합니다. 7호관 앞에서 거래 가능하신 분 우대합니다.",
-      "price": 15000,
-      "category": "책/교재",
-      "condition": "거의 새 것",
-      "images": [
-        "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=60"
+        "https://images.unsplash.com/photo-1588058365548-9fea5238dfec?w=600&auto=format&fit=crop&q=60"
       ],
       "sellerId": "user_inu_senior",
       "sellerName": "송도코딩왕",
       "sellerMannerTemp": 42.5,
       "sellerDept": "인천대학교 학생",
-      "status": "RESERVED",
-      "location": "정보기술대학 (7호관)",
+      "status": "ON_SALE",
+      "location": "복지회관/학생회관 (12호관)",
       "timeSlots": [
-        "월요일 오후(2-6시)",
-        "수요일 오전(9-12시)",
-        "금요일 오후(2-6시)"
+        "화요일 저녁(6-9시)",
+        "목요일 저녁(6-9시)"
       ],
-      "createdAt": "2026-06-15T09:00:00Z",
-      "views": 39,
-      "likes": 3,
-      "likedBy": [],
-      "reservedBuyerId": "user_inu_sophomore",
-      "reservedBuyerName": "경영학도",
-      "selectedTimeSlot": "금요일 오후(2-6시)"
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
+      "createdAt": "2026-06-14T15:20:00Z",
+      "views": 90,
+      "likes": 8,
+      "likedBy": []
     },
     {
       "id": "item_mock_3",
@@ -78,9 +51,68 @@
         "목요일 오전(9-12시)",
         "금요일 오전(9-12시)"
       ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
       "createdAt": "2026-06-16T02:10:00Z",
       "views": 12,
       "likes": 1,
+      "likedBy": []
+    },
+    {
+      "id": "item_mock_4",
+      "title": "나이키 헤어밴드 블랙",
+      "description": "러닝할 때 쓰려고 샀는데 어울리지 않아서 팝니다. 시착 1회 완료. 5호관 자연과학대나 대운동장 근처 거래 희망합니다.",
+      "price": 5000,
+      "category": "의류/잡화",
+      "condition": "거의 새 것",
+      "images": [
+        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop&q=60"
+      ],
+      "sellerId": "user_inu_freshman",
+      "sellerName": "정보기과26",
+      "sellerMannerTemp": 36.5,
+      "sellerDept": "인천대학교 학생",
+      "status": "ON_SALE",
+      "location": "자연과학대학 (5호관)",
+      "timeSlots": [
+        "월요일 점심(12-2시)",
+        "목요일 오후(2-6시)"
+      ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
+      "createdAt": "2026-06-15T18:45:00Z",
+      "views": 23,
+      "likes": 0,
+      "likedBy": []
+    },
+    {
+      "id": "item_mock_5",
+      "title": "운영체제(Operating System Concepts) 10판 한글번역서",
+      "description": "컴공 학우 필수 전공서적 공룡책 10판 팝니다. 약간의 필기 흔적이 있으나 공부하시기에 지장 전혀 없습니다. 7호관 로비 직거래 가능해요.",
+      "price": 22000,
+      "category": "책/교재",
+      "condition": "사용감 있음",
+      "images": [
+        "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=600&auto=format&fit=crop&q=60"
+      ],
+      "sellerId": "user_inu_senior",
+      "sellerName": "송도코딩왕",
+      "sellerMannerTemp": 42.5,
+      "sellerDept": "인천대학교 학생",
+      "status": "ON_SALE",
+      "location": "정보기술대학 (7호관)",
+      "timeSlots": [
+        "화요일 점심(12-2시)",
+        "금요일 오후(2-6시)"
+      ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
+      "createdAt": "2026-06-16T04:30:00Z",
+      "views": 46,
+      "likes": 4,
       "likedBy": []
     },
     {
@@ -97,7 +129,7 @@
       "sellerName": "경영학도",
       "sellerMannerTemp": 38,
       "sellerDept": "경영대학 경영학부",
-      "status": "RESERVED",
+      "status": "ON_SALE",
       "location": "복지회관/학생회관 (12호관)",
       "timeSlots": [
         "월요일 오전(9-12시)",
@@ -108,13 +140,13 @@
         "토요일 오후(2-6시)",
         "일요일 오후(2-6시)"
       ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
       "createdAt": "2026-06-16T05:00:00Z",
-      "views": 68,
+      "views": 67,
       "likes": 12,
-      "likedBy": [],
-      "reservedBuyerId": "user_inu_freshman",
-      "reservedBuyerName": "정보기과26",
-      "selectedTimeSlot": "목요일 오전(9-12시)"
+      "likedBy": []
     },
     {
       "id": "item_mock_7",
@@ -136,6 +168,9 @@
         "수요일 점심(12-2시)",
         "목요일 점심(12-2시)"
       ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
       "createdAt": "2026-06-16T06:15:00Z",
       "views": 41,
       "likes": 2,
@@ -155,15 +190,18 @@
       "sellerName": "경영학도",
       "sellerMannerTemp": 38,
       "sellerDept": "인천대학교 학생",
-      "status": "COMPLETED",
+      "status": "ON_SALE",
       "location": "송도기숙사 / 제2·3기숙사",
       "timeSlots": [
         "월요일 저녁(6-9시)",
         "수요일 저녁(6-9시)",
         "금요일 저녁(6-9시)"
       ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
       "createdAt": "2026-06-16T07:10:00Z",
-      "views": 30,
+      "views": 28,
       "likes": 3,
       "likedBy": []
     },
@@ -187,8 +225,11 @@
         "월요일 저녁(6-9시)",
         "수요일 저녁(6-9시)"
       ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
       "createdAt": "2026-06-16T07:45:00Z",
-      "views": 20,
+      "views": 19,
       "likes": 1,
       "likedBy": []
     },
@@ -206,19 +247,48 @@
       "sellerName": "정보기과26",
       "sellerMannerTemp": 36.5,
       "sellerDept": "인천대학교 학생",
-      "status": "COMPLETED",
+      "status": "ON_SALE",
       "location": "인문대학 (1호관)",
       "timeSlots": [
         "목요일 오전(9-12시)",
         "금요일 오전(9-12시)"
       ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
       "createdAt": "2026-06-16T08:00:00Z",
-      "views": 23,
+      "views": 16,
       "likes": 1,
-      "likedBy": [],
-      "reservedBuyerId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "reservedBuyerName": "강지우",
-      "selectedTimeSlot": "목요일 오전(9-12시)"
+      "likedBy": []
+    },
+    {
+      "id": "item_mock_1",
+      "title": "알기 쉬운 알고리즘 전공책 팝니다 (깨끗함)",
+      "description": "인천대학교 전공 서적입니다. 필기 거의 없고 깨끗합니다. 7호관 앞에서 거래 가능하신 분 우대합니다.",
+      "price": 15000,
+      "category": "책/교재",
+      "condition": "거의 새 것",
+      "images": [
+        "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=60"
+      ],
+      "sellerId": "user_inu_senior",
+      "sellerName": "송도코딩왕",
+      "sellerMannerTemp": 42.5,
+      "sellerDept": "인천대학교 학생",
+      "status": "ON_SALE",
+      "location": "정보기술대학 (7호관)",
+      "timeSlots": [
+        "월요일 오후(2-6시)",
+        "수요일 오전(9-12시)",
+        "금요일 오후(2-6시)"
+      ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
+      "createdAt": "2026-06-15T09:00:00Z",
+      "views": 34,
+      "likes": 3,
+      "likedBy": []
     }
   ],
   "users": [
@@ -265,7 +335,7 @@
       "nickname": "정보기과26",
       "department": "인천대학교 학생",
       "mannerTemp": 36.5,
-      "completedTradesCount": 3,
+      "completedTradesCount": 2,
       "wishlist": [],
       "reviews": []
     },
@@ -275,20 +345,9 @@
       "nickname": "경영학도",
       "department": "인천대학교 학생",
       "mannerTemp": 38,
-      "completedTradesCount": 6,
+      "completedTradesCount": 5,
       "wishlist": [],
       "reviews": []
-    },
-    {
-      "id": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "email": "jiiiiiu.u02@gmail.com",
-      "nickname": "강지우",
-      "department": "정보기술대학 컴퓨터공학부",
-      "mannerTemp": 36.5,
-      "completedTradesCount": 0,
-      "reviews": [],
-      "wishlist": [],
-      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJn8CnZ3vC6D8oSrMVnX2WKNecomJFG4OxwZ-GLCFeDO69Ghw=s96-c"
     },
     {
       "id": "7a90dda9-671e-4eb0-bd2d-2e39eb61a446",
@@ -297,9 +356,22 @@
       "department": "정보기술대학 컴퓨터공학부",
       "mannerTemp": 36.5,
       "completedTradesCount": 0,
-      "reviews": [],
       "wishlist": [],
-      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocI1Bccdbn-Qgu14Hc2ozwm31GIZRRb5PABRwOiU8tEca0HPRA=s96-c"
+      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocI1Bccdbn-Qgu14Hc2ozwm31GIZRRb5PABRwOiU8tEca0HPRA=s96-c",
+      "reviews": [],
+      "createdAt": "2026-06-16T20:26:55.623554+00:00"
+    },
+    {
+      "id": "0c016026-9498-4b9f-b090-5e8a64aa4453",
+      "email": "jiiiiiu.u02@gmail.com",
+      "nickname": "강지우",
+      "department": "정보기술대학 컴퓨터공학부",
+      "mannerTemp": 36.5,
+      "completedTradesCount": 0,
+      "wishlist": [],
+      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJn8CnZ3vC6D8oSrMVnX2WKNecomJFG4OxwZ-GLCFeDO69Ghw=s96-c",
+      "reviews": [],
+      "createdAt": "2026-06-18T14:39:54.628059+00:00"
     },
     {
       "id": "6b0939c3-81b4-4709-bd0e-dbf69f6a7d00",
@@ -308,297 +380,13 @@
       "department": "정보기술대학 컴퓨터공학부",
       "mannerTemp": 36.5,
       "completedTradesCount": 0,
-      "reviews": [],
       "wishlist": [],
-      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocLI6zY-w1BGaqTynjgZn42mnFFCTZRWORtitKVDvITtkDSMow=s96-c"
+      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocLI6zY-w1BGaqTynjgZn42mnFFCTZRWORtitKVDvITtkDSMow=s96-c",
+      "reviews": [],
+      "createdAt": "2026-06-18T19:31:04.523731+00:00"
     }
   ],
-  "chatRooms": [
-    {
-      "id": "chat_1781810184905",
-      "itemId": "item_mock_1",
-      "itemTitle": "알기 쉬운 알고리즘 전공책 팝니다 (깨끗함)",
-      "itemPrice": 15000,
-      "itemImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=60",
-      "itemStatus": "RESERVED",
-      "buyerId": "user_inu_sophomore",
-      "buyerName": "경영학도",
-      "sellerId": "user_inu_senior",
-      "sellerName": "송도코딩왕",
-      "messages": [
-        {
-          "id": "msg_sys_1781810184905",
-          "senderId": "system",
-          "senderName": "시스템",
-          "content": "경영학도님의 거래 신청이 수락되었습니다. 거래 예약이 완료되었습니다!\n약속 장소: 정보기술대학 (7호관)\n약속 시간: 금요일 오후(2-6시)",
-          "timestamp": "2026-06-18T19:16:24.905Z",
-          "type": "SYSTEM"
-        }
-      ],
-      "reservationStatus": "ACCEPTED",
-      "proposedTimeSlot": "금요일 오후(2-6시)",
-      "lastMessageText": "✅ 거래 신청 수락됨",
-      "lastMessageTime": "2026-06-18T19:16:24.905Z"
-    },
-    {
-      "id": "chat_1781808545847",
-      "itemId": "item_mock_10",
-      "itemTitle": "해커스 토익 실전 1000제 RC + LC 문제집 세트",
-      "itemPrice": 10000,
-      "itemImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&auto=format&fit=crop&q=60",
-      "itemStatus": "COMPLETED",
-      "buyerId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "buyerName": "강지우",
-      "sellerId": "user_inu_freshman",
-      "sellerName": "정보기과26",
-      "messages": [
-        {
-          "id": "msg_sys_1781808545847",
-          "senderId": "system",
-          "senderName": "시스템",
-          "content": "강지우님의 거래 신청이 수락되었습니다. 거래 예약이 완료되었습니다!\n약속 장소: 인문대학 (1호관)\n약속 시간: 목요일 오전(9-12시)",
-          "timestamp": "2026-06-18T18:49:05.847Z",
-          "type": "SYSTEM"
-        },
-        {
-          "id": "msg_sys_comp_1781808566266",
-          "senderId": "system",
-          "senderName": "시스템",
-          "content": "🎉 거래가 완료되었습니다! 상대방에 대한 따뜻한 후기를 남겨주세요.",
-          "timestamp": "2026-06-18T18:49:26.266Z",
-          "type": "SYSTEM"
-        }
-      ],
-      "reservationStatus": "ACCEPTED",
-      "proposedTimeSlot": "목요일 오전(9-12시)",
-      "lastMessageText": "✅ 거래 신청 수락됨",
-      "lastMessageTime": "2026-06-18T18:49:05.847Z"
-    }
-  ],
-  "tradeRequests": [
-    {
-      "id": "req_1781810171521",
-      "itemId": "item_mock_1",
-      "itemTitle": "알기 쉬운 알고리즘 전공책 팝니다 (깨끗함)",
-      "itemImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=60",
-      "itemPrice": 15000,
-      "buyerId": "user_inu_sophomore",
-      "buyerName": "경영학도",
-      "sellerId": "user_inu_senior",
-      "sellerName": "송도코딩왕",
-      "selectedLocation": "정보기술대학 (7호관)",
-      "selectedTimeSlot": "금요일 오후(2-6시)",
-      "message": "",
-      "status": "ACCEPTED",
-      "expiresAt": "2026-06-19T19:16:11.521Z",
-      "createdAt": "2026-06-18T19:16:11.521Z"
-    },
-    {
-      "id": "req_1781809826229",
-      "itemId": "item_mock_1",
-      "itemTitle": "알기 쉬운 알고리즘 전공책 팝니다 (깨끗함)",
-      "itemImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=60",
-      "itemPrice": 15000,
-      "buyerId": "user_inu_sophomore",
-      "buyerName": "경영학도",
-      "sellerId": "user_inu_senior",
-      "sellerName": "송도코딩왕",
-      "selectedLocation": "정보기술대학 (7호관)",
-      "selectedTimeSlot": "수요일 오전(9-12시)",
-      "message": "",
-      "status": "REJECTED",
-      "expiresAt": "2026-06-19T19:10:26.229Z",
-      "createdAt": "2026-06-18T19:10:26.229Z"
-    },
-    {
-      "id": "req_1781809795955",
-      "itemId": "item_mock_8",
-      "itemTitle": "기숙사용 무소음 미니 가습기 (C타입 충전)",
-      "itemImage": "https://images.unsplash.com/photo-1519669551128-0010b555df6f?w=600&auto=format&fit=crop&q=60",
-      "itemPrice": 8000,
-      "buyerId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "buyerName": "강지우",
-      "sellerId": "user_inu_sophomore",
-      "sellerName": "경영학도",
-      "selectedLocation": "송도기숙사 / 제2·3기숙사",
-      "selectedTimeSlot": "수요일 저녁(6-9시)",
-      "message": "",
-      "status": "REJECTED",
-      "expiresAt": "2026-06-19T19:09:55.954Z",
-      "createdAt": "2026-06-18T19:09:55.955Z"
-    },
-    {
-      "id": "req_1781808268319",
-      "itemId": "item_mock_6",
-      "itemTitle": "새상품) 스타벅스 SS 에치드 블랙 텀블러 473ml",
-      "itemImage": "https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?w=600&auto=format&fit=crop&q=60",
-      "itemPrice": 25000,
-      "buyerId": "user_inu_freshman",
-      "buyerName": "정보기과26",
-      "sellerId": "user_inu_sophomore",
-      "sellerName": "경영학도",
-      "selectedLocation": "복지회관/학생회관 (12호관)",
-      "selectedTimeSlot": "목요일 오전(9-12시)",
-      "message": "",
-      "status": "PENDING",
-      "expiresAt": "2026-06-19T18:44:28.319Z",
-      "createdAt": "2026-06-18T18:44:28.319Z"
-    },
-    {
-      "id": "req_1781807953084",
-      "itemId": "item_mock_10",
-      "itemTitle": "해커스 토익 실전 1000제 RC + LC 문제집 세트",
-      "itemImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&auto=format&fit=crop&q=60",
-      "itemPrice": 10000,
-      "buyerId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "buyerName": "강지우",
-      "sellerId": "user_inu_freshman",
-      "sellerName": "정보기과26",
-      "selectedLocation": "인문대학 (1호관)",
-      "selectedTimeSlot": "목요일 오전(9-12시)",
-      "message": "",
-      "status": "ACCEPTED",
-      "expiresAt": "2026-06-19T18:39:13.084Z",
-      "createdAt": "2026-06-18T18:39:13.084Z"
-    },
-    {
-      "id": "req_1781807854996",
-      "itemId": "item_mock_10",
-      "itemTitle": "해커스 토익 실전 1000제 RC + LC 문제집 세트",
-      "itemImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&auto=format&fit=crop&q=60",
-      "itemPrice": 10000,
-      "buyerId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "buyerName": "강지우",
-      "sellerId": "user_inu_freshman",
-      "sellerName": "정보기과26",
-      "selectedLocation": "인문대학 (1호관)",
-      "selectedTimeSlot": "금요일 오전(9-12시)",
-      "message": "",
-      "status": "REJECTED",
-      "expiresAt": "2026-06-19T18:37:34.995Z",
-      "createdAt": "2026-06-18T18:37:34.996Z"
-    }
-  ],
-  "notifications": [
-    {
-      "id": "notif_1781810184905",
-      "userId": "user_inu_sophomore",
-      "text": "거래가 확정되었습니다. 약속 장소와 시간을 확인해 주세요.",
-      "time": "2026-06-18T19:16:24.905Z",
-      "read": false,
-      "type": "TRADE_ACCEPTED",
-      "relatedId": "chat_1781810184905"
-    },
-    {
-      "id": "notif_1781810171521",
-      "userId": "user_inu_senior",
-      "text": "새로운 거래 요청이 도착했습니다! [정보기술대학 (7호관) / 금요일 오후(2-6시)] 수락하시겠습니까?",
-      "time": "2026-06-18T19:16:11.521Z",
-      "read": true,
-      "type": "TRADE_REQUEST",
-      "relatedId": "req_1781810171521"
-    },
-    {
-      "id": "notif_1781810139366",
-      "userId": "user_inu_sophomore",
-      "text": "아쉽게도 판매자가 거래를 거절했습니다.",
-      "time": "2026-06-18T19:15:39.366Z",
-      "read": false,
-      "type": "TRADE_REJECTED"
-    },
-    {
-      "id": "notif_1781809826229",
-      "userId": "user_inu_senior",
-      "text": "새로운 거래 요청이 도착했습니다! [정보기술대학 (7호관) / 수요일 오전(9-12시)] 수락하시겠습니까?",
-      "time": "2026-06-18T19:10:26.229Z",
-      "read": true,
-      "type": "TRADE_REQUEST",
-      "relatedId": "req_1781809826229"
-    },
-    {
-      "id": "notif_1781809802785",
-      "userId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "text": "아쉽게도 판매자가 거래를 거절했습니다.",
-      "time": "2026-06-18T19:10:02.785Z",
-      "read": true,
-      "type": "TRADE_REJECTED"
-    },
-    {
-      "id": "notif_1781809795955",
-      "userId": "user_inu_sophomore",
-      "text": "새로운 거래 요청이 도착했습니다! [송도기숙사 / 제2·3기숙사 / 수요일 저녁(6-9시)] 수락하시겠습니까?",
-      "time": "2026-06-18T19:09:55.955Z",
-      "read": true,
-      "type": "TRADE_REQUEST",
-      "relatedId": "req_1781809795955"
-    },
-    {
-      "id": "notif_1781808545847",
-      "userId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "text": "거래가 확정되었습니다. 약속 장소와 시간을 확인해 주세요.",
-      "time": "2026-06-18T18:49:05.847Z",
-      "read": true,
-      "type": "TRADE_ACCEPTED",
-      "relatedId": "chat_1781808545847"
-    },
-    {
-      "id": "notif_1781808268319",
-      "userId": "user_inu_sophomore",
-      "text": "새로운 거래 요청이 도착했습니다! [복지회관/학생회관 (12호관) / 목요일 오전(9-12시)] 수락하시겠습니까?",
-      "time": "2026-06-18T18:44:28.319Z",
-      "read": false,
-      "type": "TRADE_REQUEST",
-      "relatedId": "req_1781808268319"
-    },
-    {
-      "id": "notif_1781807953084",
-      "userId": "user_inu_freshman",
-      "text": "새로운 거래 요청이 도착했습니다! [인문대학 (1호관) / 목요일 오전(9-12시)] 수락하시겠습니까?",
-      "time": "2026-06-18T18:39:13.084Z",
-      "read": true,
-      "type": "TRADE_REQUEST",
-      "relatedId": "req_1781807953084"
-    },
-    {
-      "id": "notif_1781807919987",
-      "userId": "0c016026-9498-4b9f-b090-5e8a64aa4453",
-      "text": "아쉽게도 판매자가 거래를 거절했습니다.",
-      "time": "2026-06-18T18:38:39.987Z",
-      "read": true,
-      "type": "TRADE_REJECTED"
-    },
-    {
-      "id": "notif_1781807854996",
-      "userId": "user_inu_freshman",
-      "text": "새로운 거래 요청이 도착했습니다! [인문대학 (1호관) / 금요일 오전(9-12시)] 수락하시겠습니까?",
-      "time": "2026-06-18T18:37:34.996Z",
-      "read": true,
-      "type": "TRADE_REQUEST",
-      "relatedId": "req_1781807854996"
-    },
-    {
-      "id": "notif_1",
-      "userId": "user_inu_senior",
-      "text": "정보기과26님이 대화방에서 예약을 제안했습니다.",
-      "time": "2026-06-18T18:28:22.913Z",
-      "read": false,
-      "type": "GENERAL"
-    },
-    {
-      "id": "notif_2",
-      "userId": "user_inu_senior",
-      "text": "알기 쉬운 알고리즘 전공책 판매 예약이 확정되었습니다.",
-      "time": "2026-06-18T18:23:22.914Z",
-      "read": false,
-      "type": "GENERAL"
-    },
-    {
-      "id": "notif_3",
-      "userId": "user_inu_senior",
-      "text": "경영학도님과의 직거래가 완료되었습니다. 후기를 남겨주세요.",
-      "time": "2026-06-18T17:33:22.914Z",
-      "read": true,
-      "type": "GENERAL"
-    }
-  ]
+  "chatRooms": [],
+  "tradeRequests": [],
+  "notifications": []
 }
