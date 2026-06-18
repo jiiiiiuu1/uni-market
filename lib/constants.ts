@@ -101,7 +101,7 @@ export const MOCK_ITEMS: Item[] = [
     sellerName: "송도코딩왕",
     sellerMannerTemp: 42.5,
     sellerDept: "인천대학교 학생",
-    status: "ON_SALE",
+    status: "RESERVED",
     location: "정보기술대학 (7호관)",
     timeSlots: [
       "월요일 오후(2-6시)",
@@ -155,7 +155,7 @@ export const MOCK_ITEMS: Item[] = [
     sellerName: "경영학도",
     sellerMannerTemp: 38.0,
     sellerDept: "경영대학 경영학부",
-    status: "ON_SALE",
+    status: "COMPLETED",
     location: "복지회관/학생회관 (12호관)",
     timeSlots: [
       "월요일 오전(9-12시)",
@@ -210,7 +210,7 @@ export const MOCK_ITEMS: Item[] = [
     sellerName: "경영학도",
     sellerMannerTemp: 38.0,
     sellerDept: "인천대학교 학생",
-    status: "ON_SALE",
+    status: "COMPLETED",
     location: "송도기숙사 / 제2·3기숙사",
     timeSlots: [
       "월요일 저녁(6-9시)",
