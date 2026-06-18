@@ -25,41 +25,8 @@
       "reservedBuyerName": null,
       "selectedTimeSlot": null,
       "createdAt": "2026-06-15T09:00:00Z",
-      "views": 35,
+      "views": 34,
       "likes": 3,
-      "likedBy": []
-    },
-    {
-      "id": "item_mock_6",
-      "title": "새상품) 스타벅스 SS 에치드 블랙 텀블러 473ml",
-      "description": "선물 받았는데 텀블러가 많아서 미개봉 새상품으로 팝니다. 보온 보냉 아주 잘 되는 스테인리스 텀블러입니다.",
-      "price": 25000,
-      "category": "생활용품",
-      "condition": "새 제품",
-      "images": [
-        "https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?w=600&auto=format&fit=crop&q=60"
-      ],
-      "sellerId": "user_inu_sophomore",
-      "sellerName": "경영학도",
-      "sellerMannerTemp": 38,
-      "sellerDept": "경영대학 경영학부",
-      "status": "COMPLETED",
-      "location": "복지회관/학생회관 (12호관)",
-      "timeSlots": [
-        "월요일 오전(9-12시)",
-        "화요일 오전(9-12시)",
-        "수요일 오전(9-12시)",
-        "목요일 오전(9-12시)",
-        "금요일 오전(9-12시)",
-        "토요일 오후(2-6시)",
-        "일요일 오후(2-6시)"
-      ],
-      "reservedBuyerId": null,
-      "reservedBuyerName": null,
-      "selectedTimeSlot": null,
-      "createdAt": "2026-06-16T05:00:00Z",
-      "views": 68,
-      "likes": 12,
       "likedBy": []
     },
     {
@@ -91,6 +58,39 @@
       "createdAt": "2026-06-16T02:10:00Z",
       "views": 12,
       "likes": 1,
+      "likedBy": []
+    },
+    {
+      "id": "item_mock_6",
+      "title": "새상품) 스타벅스 SS 에치드 블랙 텀블러 473ml",
+      "description": "선물 받았는데 텀블러가 많아서 미개봉 새상품으로 팝니다. 보온 보냉 아주 잘 되는 스테인리스 텀블러입니다.",
+      "price": 25000,
+      "category": "생활용품",
+      "condition": "새 제품",
+      "images": [
+        "https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?w=600&auto=format&fit=crop&q=60"
+      ],
+      "sellerId": "user_inu_sophomore",
+      "sellerName": "경영학도",
+      "sellerMannerTemp": 38,
+      "sellerDept": "경영대학 경영학부",
+      "status": "COMPLETED",
+      "location": "복지회관/학생회관 (12호관)",
+      "timeSlots": [
+        "월요일 오전(9-12시)",
+        "화요일 오전(9-12시)",
+        "수요일 오전(9-12시)",
+        "목요일 오전(9-12시)",
+        "금요일 오전(9-12시)",
+        "토요일 오후(2-6시)",
+        "일요일 오후(2-6시)"
+      ],
+      "reservedBuyerId": null,
+      "reservedBuyerName": null,
+      "selectedTimeSlot": null,
+      "createdAt": "2026-06-16T05:00:00Z",
+      "views": 67,
+      "likes": 12,
       "likedBy": []
     },
     {
@@ -146,7 +146,7 @@
       "reservedBuyerName": null,
       "selectedTimeSlot": null,
       "createdAt": "2026-06-16T07:10:00Z",
-      "views": 29,
+      "views": 28,
       "likes": 3,
       "likedBy": []
     },
@@ -202,7 +202,7 @@
       "reservedBuyerName": null,
       "selectedTimeSlot": null,
       "createdAt": "2026-06-16T08:00:00Z",
-      "views": 16,
+      "views": 15,
       "likes": 1,
       "likedBy": []
     }
@@ -272,9 +272,10 @@
       "department": "정보기술대학 컴퓨터공학부",
       "mannerTemp": 36.5,
       "completedTradesCount": 0,
-      "reviews": [],
       "wishlist": [],
-      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocI1Bccdbn-Qgu14Hc2ozwm31GIZRRb5PABRwOiU8tEca0HPRA=s96-c"
+      "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocI1Bccdbn-Qgu14Hc2ozwm31GIZRRb5PABRwOiU8tEca0HPRA=s96-c",
+      "reviews": [],
+      "createdAt": "2026-06-16T20:26:55.623554+00:00"
     },
     {
       "id": "0c016026-9498-4b9f-b090-5e8a64aa4453",
@@ -303,5 +304,33 @@
   ],
   "chatRooms": [],
   "tradeRequests": [],
-  "notifications": []
+  "notifications": [
+    {
+      "id": "notif_1",
+      "userId": "user_inu_senior",
+      "text": "정보기과26님이 대화방에서 예약을 제안했습니다.",
+      "time": "2026-06-18T21:40:34.444Z",
+      "read": false,
+      "type": "GENERAL",
+      "relatedId": null
+    },
+    {
+      "id": "notif_2",
+      "userId": "user_inu_senior",
+      "text": "알기 쉬운 알고리즘 전공책 판매 예약이 확정되었습니다.",
+      "time": "2026-06-18T21:35:34.444Z",
+      "read": false,
+      "type": "GENERAL",
+      "relatedId": null
+    },
+    {
+      "id": "notif_3",
+      "userId": "user_inu_senior",
+      "text": "경영학도님과의 직거래가 완료되었습니다. 후기를 남겨주세요.",
+      "time": "2026-06-18T20:45:34.444Z",
+      "read": true,
+      "type": "GENERAL",
+      "relatedId": null
+    }
+  ]
 }

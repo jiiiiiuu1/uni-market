@@ -238,6 +238,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
             setTradeRequests(data.tradeRequests || []);
             setNotifications(data.notifications || []);
             console.log("[AppContext load] Loaded from server store");
+            
+            if (data._debug?.usingLocalFallback) {
+              console.warn(
+                "⚠️ [Uni-Market Warning] Supabase is NOT configured or database queries failed on the server!\n" +
+                `Reason: ${data._debug.reason || "Unknown"}\n` +
+                "Vercel is falling back to ephemeral local server storage. Data will be lost when container instances are recycled or on multiple page reloads."
+              );
+            }
           } else {
             throw new Error("Server store response not OK");
           }
