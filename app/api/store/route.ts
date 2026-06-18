@@ -82,6 +82,13 @@ export async function GET() {
     process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
 
+  const noCacheHeaders = {
+    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    "Pragma": "no-cache",
+    "Expires": "0",
+  };
+  const responseOptions = { headers: noCacheHeaders };
+
   if (!isConfigured) {
     console.log("[Store API] Supabase not configured. Using local JSON store.");
     return NextResponse.json({
@@ -91,7 +98,7 @@ export async function GET() {
         usingLocalFallback: true,
         reason: "Missing environment variables"
       }
-    });
+    }, responseOptions);
   }
 
   try {
@@ -128,7 +135,7 @@ export async function GET() {
             users: usersErr?.message || null
           }
         }
-      });
+      }, responseOptions);
     }
 
     // Map user attributes from snake_case back to camelCase
@@ -213,7 +220,7 @@ export async function GET() {
           seeded: true,
           dbItemsCount: 0
         }
-      });
+      }, responseOptions);
     }
 
     return NextResponse.json({
@@ -227,7 +234,7 @@ export async function GET() {
         usingLocalFallback: false,
         dbItemsCount: dbItems.length
       }
-    });
+    }, responseOptions);
   } catch (error) {
     console.error("[Store API] Unexpected error querying Supabase. Falling back to local store:", error);
     return NextResponse.json({
@@ -238,7 +245,7 @@ export async function GET() {
         reason: "Unexpected exception",
         error: String(error)
       }
-    });
+    }, responseOptions);
   }
 }
 
