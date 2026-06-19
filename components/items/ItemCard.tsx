@@ -40,17 +40,20 @@ export default function ItemCard({ item, variant = "vertical" }: { item: Item; v
     return `${diffDays}일 전`;
   };
 
-  const isClickRestricted = item.status === "RESERVED" || item.status === "COMPLETED";
+  const isSeller = item.sellerId === currentUser?.id;
+  const isClickRestricted = (item.status === "RESERVED" || item.status === "COMPLETED") && !isSeller;
 
   const handleClick = (e: React.MouseEvent) => {
-    if (item.status === "RESERVED") {
-      e.preventDefault();
-      e.stopPropagation();
-      alert("이미 다른 학우가 예약 진행 중인 물품입니다.");
-    } else if (item.status === "COMPLETED") {
-      e.preventDefault();
-      e.stopPropagation();
-      alert("거래가 완료된 물품입니다.");
+    if (isClickRestricted) {
+      if (item.status === "RESERVED") {
+        e.preventDefault();
+        e.stopPropagation();
+        alert("이미 다른 학우가 예약 진행 중인 물품입니다.");
+      } else if (item.status === "COMPLETED") {
+        e.preventDefault();
+        e.stopPropagation();
+        alert("거래가 완료된 물품입니다.");
+      }
     }
   };
 
