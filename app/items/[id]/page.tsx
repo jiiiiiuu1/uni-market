@@ -138,17 +138,26 @@ export default function ItemDetailPage() {
   const isSeller = currentUser?.id === item.sellerId;
   const isBuyer = currentUser?.id === item.reservedBuyerId;
   const isReserved = item.status === "RESERVED";
-  const isAccessBlocked = isReserved && !isSeller && !isBuyer;
+  const isCompleted = item.status === "COMPLETED";
+  const isAccessBlocked = (isReserved || isCompleted) && !isSeller && !isBuyer;
 
   if (isAccessBlocked) {
     return (
       <>
         <Navbar />
         <main className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-slate-50 dark:bg-slate-900 min-h-[calc(100vh-16rem)]">
-          <AlertCircle className="h-16 w-16 text-amber-500 mb-4 animate-pulse" />
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">예약 진행 중인 상품입니다</h2>
+          {isCompleted ? (
+            <CheckCircle className="h-16 w-16 text-slate-400 mb-4 animate-bounce" />
+          ) : (
+            <AlertCircle className="h-16 w-16 text-amber-500 mb-4 animate-pulse" />
+          )}
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">
+            {isCompleted ? "거래가 완료된 상품입니다" : "예약 진행 중인 상품입니다"}
+          </h2>
           <p className="text-sm text-slate-500 mt-2">
-            현재 다른 학우가 예약을 선점하여 진행 중입니다.
+            {isCompleted
+              ? "이미 다른 학우와 거래가 마감되었습니다."
+              : "현재 다른 학우가 예약을 선점하여 진행 중입니다."}
           </p>
           <button
             onClick={() => router.push("/")}

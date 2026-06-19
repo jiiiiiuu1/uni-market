@@ -305,32 +305,33 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       } else {
         localStorage.removeItem("uni_current_user");
       }
-      const syncToServer = async () => {
-        try {
-          isWritingRef.current = true;
-          await fetch("/api/store", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              items,
-              users,
-              chatRooms,
-              tradeRequests,
-              notifications,
-            }),
-          });
-        } catch (error) {
-          console.error("Failed to sync store to server:", error);
-        } finally {
-          setTimeout(() => {
-            isWritingRef.current = false;
-          }, 1500);
-        }
-      };
+      if (isWritingRef.current) {
+        const syncToServer = async () => {
+          try {
+            await fetch("/api/store", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                items,
+                users,
+                chatRooms,
+                tradeRequests,
+                notifications,
+              }),
+            });
+          } catch (error) {
+            console.error("Failed to sync store to server:", error);
+          } finally {
+            setTimeout(() => {
+              isWritingRef.current = false;
+            }, 1500);
+          }
+        };
 
-      syncToServer();
+        syncToServer();
+      }
     }
   }, [users, items, chatRooms, currentUser, tradeRequests, notifications, isInitialized]);
 
@@ -388,6 +389,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     // Auto-register valid INU university email domains on login attempt
     const inuDomainRegex = /^[a-zA-Z0-9._%+-]+@(inu\.ac\.kr|inchon\.ac\.kr)$/;
     if (inuDomainRegex.test(formattedEmail)) {
+      isWritingRef.current = true;
       const emailPrefix = formattedEmail.split("@")[0];
       const newUser: UserProfile = {
         id: `user_${Date.now()}`,
@@ -434,6 +436,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       reviews: [],
     };
 
+    isWritingRef.current = true;
     const updatedUsers = [...users, newUser];
     setUsers(updatedUsers);
     setCurrentUser(newUser);
@@ -531,6 +534,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     if (existing) return existing.id;
 
     // Create a new one
+    isWritingRef.current = true;
     const newChatId = `chat_${Date.now()}`;
     const newChat: ChatRoom = {
       id: newChatId,
@@ -567,6 +571,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     proposedTimeSlot?: string
   ) => {
     if (!currentUser) return;
+    isWritingRef.current = true;
 
     setChatRooms((prev) =>
       prev.map((chat) => {
@@ -596,6 +601,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const proposeReservation = (chatRoomId: string, timeSlot: string) => {
     if (!currentUser) return;
+    isWritingRef.current = true;
 
     setChatRooms((prev) =>
       prev.map((chat) => {
@@ -625,6 +631,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const acceptReservation = (chatRoomId: string) => {
     if (!currentUser) return;
+    isWritingRef.current = true;
 
     setChatRooms((prev) =>
       prev.map((chat) => {
@@ -671,6 +678,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const rejectReservation = (chatRoomId: string) => {
     if (!currentUser) return;
+    isWritingRef.current = true;
 
     setChatRooms((prev) =>
       prev.map((chat) => {
@@ -697,6 +705,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   };
 
   const completeTrade = (itemId: string) => {
+    isWritingRef.current = true;
     updateItemStatus(itemId, "COMPLETED");
 
     // Also update current buyer/seller stats
@@ -781,6 +790,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       createdAt: new Date().toISOString(),
     };
 
+    isWritingRef.current = true;
     setUsers((prevUsers) =>
       prevUsers.map((u) => {
         if (u.id === targetUserId) {
@@ -830,6 +840,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const toggleLikeItem = (itemId: string) => {
     if (!currentUser) return;
+    isWritingRef.current = true;
 
     // Toggle in user's wishlist
     const currentWishlist = currentUser.wishlist || [];
@@ -872,6 +883,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   };
 
   const incrementItemViews = (itemId: string) => {
+    isWritingRef.current = true;
     setItems((prevItems) =>
       prevItems.map((item) => {
         if (item.id !== itemId) return item;
@@ -1109,6 +1121,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
 
   const markNotificationAsRead = (notifId: string) => {
+    isWritingRef.current = true;
     setNotifications((prev) =>
       prev.map((n) => (n.id === notifId ? { ...n, read: true } : n))
     );
@@ -1116,6 +1129,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const markAllNotificationsAsRead = () => {
     if (!currentUser) return;
+    isWritingRef.current = true;
     setNotifications((prev) =>
       prev.map((n) => (n.userId === currentUser.id ? { ...n, read: true } : n))
     );
