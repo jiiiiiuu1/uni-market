@@ -117,25 +117,24 @@ export async function GET() {
     ]);
 
     if (itemsErr || chatsErr || requestsErr || notifsErr || usersErr) {
-      console.warn(
-        "[Store API] One or more Supabase table queries failed (tables might not be created yet). Falling back to local store.",
+      console.error(
+        "[Store API] Database query failed:",
         { itemsErr, chatsErr, requestsErr, notifsErr, usersErr }
       );
-      return NextResponse.json({
-        ...readDataLocal(),
-        _debug: {
-          isSupabaseConfigured: true,
-          usingLocalFallback: true,
-          reason: "Database query error",
-          errors: {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Database query failed",
+          details: {
             items: itemsErr?.message || null,
             chats: chatsErr?.message || null,
             requests: requestsErr?.message || null,
             notifs: notifsErr?.message || null,
             users: usersErr?.message || null
           }
-        }
-      }, responseOptions);
+        },
+        { status: 500, headers: noCacheHeaders }
+      );
     }
 
     // Map user attributes from snake_case back to camelCase
@@ -236,16 +235,15 @@ export async function GET() {
       }
     }, responseOptions);
   } catch (error) {
-    console.error("[Store API] Unexpected error querying Supabase. Falling back to local store:", error);
-    return NextResponse.json({
-      ...readDataLocal(),
-      _debug: {
-        isSupabaseConfigured: true,
-        usingLocalFallback: true,
-        reason: "Unexpected exception",
-        error: String(error)
-      }
-    }, responseOptions);
+    console.error("[Store API] Unexpected error querying Supabase:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Unexpected database query exception",
+        details: String(error)
+      },
+      { status: 500, headers: noCacheHeaders }
+    );
   }
 }
 
@@ -413,29 +411,30 @@ export async function POST(request: Request) {
     }
 
     if (dbError) {
-      console.warn(
-        "[Store API] Supabase sync failed, falling back to local JSON store.",
-        dbError
+      console.error("[Store API] Supabase sync failed:", dbError);
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Database sync failed",
+          details: dbError.message || String(dbError),
+        },
+        { status: 500 }
       );
-      const success = writeDataLocal({ items, users, chatRooms, tradeRequests, notifications });
-      return NextResponse.json({
-        success,
-        fallback: true,
-        error: dbError.message || String(dbError),
-      });
     }
 
     // Success sync, write to local JSON also to maintain dual parity
     writeDataLocal({ items, users, chatRooms, tradeRequests, notifications });
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("[Store API] Unexpected sync error. Falling back to local store:", error);
-    const success = writeDataLocal({ items, users, chatRooms, tradeRequests, notifications });
-    return NextResponse.json({
-      success,
-      fallback: true,
-      error: String(error),
-    });
+    console.error("[Store API] Unexpected sync error:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Unexpected sync exception",
+        details: String(error),
+      },
+      { status: 500 }
+    );
   }
 }
 
