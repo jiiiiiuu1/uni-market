@@ -41,6 +41,7 @@ export default function ItemDetailPage() {
   const {
     items,
     currentUser,
+    isInitialized,
     getOrCreateChatRoom,
     updateItemStatus,
     toggleLikeItem,
@@ -114,6 +115,19 @@ export default function ItemDetailPage() {
     const rest = items.filter((i) => i.category !== item.category && i.id !== item.id);
     return [...matched, ...rest].slice(0, 4);
   }, [items, item?.category, item?.id]);
+
+  if (!isInitialized) {
+    return (
+      <>
+        <Navbar />
+        <main className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-slate-50 dark:bg-slate-900 min-h-[calc(100vh-16rem)]">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <p className="text-sm text-slate-500 mt-4 font-semibold">정보를 불러오는 중입니다...</p>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 
   if (!item) {
     return (

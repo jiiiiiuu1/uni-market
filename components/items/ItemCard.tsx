@@ -5,7 +5,7 @@ import { MapPin, Clock, Tag } from "lucide-react";
 import { useApp } from "@/lib/AppContext";
 
 export default function ItemCard({ item, variant = "vertical" }: { item: Item; variant?: "vertical" | "horizontal" }) {
-  const { currentUser } = useApp();
+  const { currentUser, isInitialized } = useApp();
 
   // Price formatting
   const formattedPrice = item?.price === 0 ? "무료나눔 🎁" : `${(item?.price || 0).toLocaleString()}원`;
@@ -40,8 +40,8 @@ export default function ItemCard({ item, variant = "vertical" }: { item: Item; v
     return `${diffDays}일 전`;
   };
 
-  const isSeller = item.sellerId === currentUser?.id;
-  const isClickRestricted = (item.status === "RESERVED" || item.status === "COMPLETED") && !isSeller;
+  const isSeller = currentUser && item.sellerId === currentUser.id;
+  const isClickRestricted = isInitialized && (item.status === "RESERVED" || item.status === "COMPLETED") && !isSeller;
 
   const handleClick = (e: React.MouseEvent) => {
     if (isClickRestricted) {
