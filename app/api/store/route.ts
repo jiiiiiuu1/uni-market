@@ -275,115 +275,117 @@ export async function POST(request: Request) {
   try {
     let dbError: any = null;
 
-    // 1. Sync items
-    if (!dbError) {
-      const { error: delErr } = await supabase.from("items").delete().neq("id", "_placeholder_");
-      if (delErr) {
-        dbError = delErr;
-      } else if (items && items.length > 0) {
-        const itemsToInsert = items.map((item: any) => ({
-          id: item.id,
-          title: item.title,
-          description: item.description,
-          price: item.price,
-          category: item.category,
-          condition: item.condition,
-          images: item.images || [],
-          sellerId: item.sellerId,
-          sellerName: item.sellerName,
-          sellerMannerTemp: item.sellerMannerTemp,
-          sellerDept: item.sellerDept,
-          status: item.status || "ON_SALE",
-          location: item.location || "",
-          timeSlots: item.timeSlots || [],
-          reservedBuyerId: item.reservedBuyerId || null,
-          reservedBuyerName: item.reservedBuyerName || null,
-          selectedTimeSlot: item.selectedTimeSlot || null,
-          createdAt: item.createdAt || new Date().toISOString(),
-          views: item.views || 0,
-          likes: item.likes || 0,
-          likedBy: item.likedBy || [],
-        }));
-        const { error: insErr } = await supabase.from("items").insert(itemsToInsert);
-        if (insErr) dbError = insErr;
+    // Helper function to safely sync a table by:
+    // 1. Fetching current IDs in DB
+    // 2. Deleting only rows that are not in the payload
+    // 3. Upserting the payload rows (avoiding wiping the table empty and causing GET race conditions)
+    async function syncTable(tableName: string, payloadItems: any[], mapper: (item: any) => any) {
+      if (dbError) return;
+
+      const payloadIds = (payloadItems || []).map((x: any) => x.id);
+      
+      // 1. Fetch current IDs
+      const { data: dbRows, error: fetchErr } = await supabase.from(tableName).select("id");
+      if (fetchErr) {
+        dbError = fetchErr;
+        return;
+      }
+
+      const dbIds = (dbRows || []).map((x: any) => x.id);
+      const idsToDelete = dbIds.filter((id: string) => !payloadIds.includes(id));
+
+      // 2. Delete rows removed on client
+      if (idsToDelete.length > 0) {
+        const { error: delErr } = await supabase.from(tableName).delete().in("id", idsToDelete);
+        if (delErr) {
+          dbError = delErr;
+          return;
+        }
+      }
+
+      // 3. Upsert current rows
+      if (payloadItems && payloadItems.length > 0) {
+        const mappedItems = payloadItems.map(mapper);
+        const { error: upsertErr } = await supabase.from(tableName).upsert(mappedItems, { onConflict: "id" });
+        if (upsertErr) {
+          dbError = upsertErr;
+        }
       }
     }
+
+    // 1. Sync items
+    await syncTable("items", items, (item: any) => ({
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      price: item.price,
+      category: item.category,
+      condition: item.condition,
+      images: item.images || [],
+      sellerId: item.sellerId,
+      sellerName: item.sellerName,
+      sellerMannerTemp: item.sellerMannerTemp,
+      sellerDept: item.sellerDept,
+      status: item.status || "ON_SALE",
+      location: item.location || "",
+      timeSlots: item.timeSlots || [],
+      reservedBuyerId: item.reservedBuyerId || null,
+      reservedBuyerName: item.reservedBuyerName || null,
+      selectedTimeSlot: item.selectedTimeSlot || null,
+      createdAt: item.createdAt || new Date().toISOString(),
+      views: item.views || 0,
+      likes: item.likes || 0,
+      likedBy: item.likedBy || [],
+    }));
 
     // 2. Sync chat rooms
-    if (!dbError) {
-      const { error: delErr } = await supabase.from("chat_rooms").delete().neq("id", "_placeholder_");
-      if (delErr) {
-        dbError = delErr;
-      } else if (chatRooms && chatRooms.length > 0) {
-        const chatsToInsert = chatRooms.map((room: any) => ({
-          id: room.id,
-          itemId: room.itemId,
-          itemTitle: room.itemTitle,
-          itemPrice: room.itemPrice,
-          itemImage: room.itemImage || null,
-          itemStatus: room.itemStatus || null,
-          buyerId: room.buyerId,
-          buyerName: room.buyerName || null,
-          sellerId: room.sellerId,
-          sellerName: room.sellerName || null,
-          messages: room.messages || [],
-          reservationStatus: room.reservationStatus || "NONE",
-          proposedTimeSlot: room.proposedTimeSlot || null,
-          lastMessageText: room.lastMessageText || null,
-          lastMessageTime: room.lastMessageTime || null,
-        }));
-        const { error: insErr } = await supabase.from("chat_rooms").insert(chatsToInsert);
-        if (insErr) dbError = insErr;
-      }
-    }
+    await syncTable("chat_rooms", chatRooms, (room: any) => ({
+      id: room.id,
+      itemId: room.itemId,
+      itemTitle: room.itemTitle,
+      itemPrice: room.itemPrice,
+      itemImage: room.itemImage || null,
+      itemStatus: room.itemStatus || null,
+      buyerId: room.buyerId,
+      buyerName: room.buyerName || null,
+      sellerId: room.sellerId,
+      sellerName: room.sellerName || null,
+      messages: room.messages || [],
+      reservationStatus: room.reservationStatus || "NONE",
+      proposedTimeSlot: room.proposedTimeSlot || null,
+      lastMessageText: room.lastMessageText || null,
+      lastMessageTime: room.lastMessageTime || null,
+    }));
 
     // 3. Sync trade requests
-    if (!dbError) {
-      const { error: delErr } = await supabase.from("trade_requests").delete().neq("id", "_placeholder_");
-      if (delErr) {
-        dbError = delErr;
-      } else if (tradeRequests && tradeRequests.length > 0) {
-        const requestsToInsert = tradeRequests.map((req: any) => ({
-          id: req.id,
-          itemId: req.itemId,
-          itemTitle: req.itemTitle || null,
-          itemImage: req.itemImage || null,
-          itemPrice: req.itemPrice || 0,
-          buyerId: req.buyerId,
-          buyerName: req.buyerName || null,
-          sellerId: req.sellerId,
-          sellerName: req.sellerName || null,
-          selectedLocation: req.selectedLocation || null,
-          selectedTimeSlot: req.selectedTimeSlot || null,
-          message: req.message || null,
-          status: req.status || "PENDING",
-          expiresAt: req.expiresAt || null,
-          createdAt: req.createdAt || new Date().toISOString(),
-        }));
-        const { error: insErr } = await supabase.from("trade_requests").insert(requestsToInsert);
-        if (insErr) dbError = insErr;
-      }
-    }
+    await syncTable("trade_requests", tradeRequests, (req: any) => ({
+      id: req.id,
+      itemId: req.itemId,
+      itemTitle: req.itemTitle || null,
+      itemImage: req.itemImage || null,
+      itemPrice: req.itemPrice || 0,
+      buyerId: req.buyerId,
+      buyerName: req.buyerName || null,
+      sellerId: req.sellerId,
+      sellerName: req.sellerName || null,
+      selectedLocation: req.selectedLocation || null,
+      selectedTimeSlot: req.selectedTimeSlot || null,
+      message: req.message || null,
+      status: req.status || "PENDING",
+      expiresAt: req.expiresAt || null,
+      createdAt: req.createdAt || new Date().toISOString(),
+    }));
 
     // 4. Sync notifications
-    if (!dbError) {
-      const { error: delErr } = await supabase.from("notifications").delete().neq("id", "_placeholder_");
-      if (delErr) {
-        dbError = delErr;
-      } else if (notifications && notifications.length > 0) {
-        const notificationsToInsert = notifications.map((notif: any) => ({
-          id: notif.id,
-          userId: notif.userId,
-          text: notif.text,
-          time: notif.time,
-          read: notif.read || false,
-          type: notif.type || "GENERAL",
-          relatedId: notif.relatedId || null,
-        }));
-        const { error: insErr } = await supabase.from("notifications").insert(notificationsToInsert);
-        if (insErr) dbError = insErr;
-      }
-    }
+    await syncTable("notifications", notifications, (notif: any) => ({
+      id: notif.id,
+      userId: notif.userId,
+      text: notif.text,
+      time: notif.time,
+      read: notif.read || false,
+      type: notif.type || "GENERAL",
+      relatedId: notif.relatedId || null,
+    }));
 
     // 5. Sync users (only for valid UUID keys representing real authenticated users)
     if (!dbError && users && users.length > 0) {
